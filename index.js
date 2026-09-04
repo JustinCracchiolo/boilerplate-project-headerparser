@@ -19,9 +19,14 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// your first API endpoint...
-app.get('/api/hello', function (req, res) {
-  res.json({ greeting: 'hello API' });
+// /api/whoami
+app.get('/api/whoami', (res) => {
+  return res.json(
+    { ipaddress: 'hello API', 
+      language: "English",
+      software: "vscode"
+    }
+  );
 });
 
 // listen for requests :)
