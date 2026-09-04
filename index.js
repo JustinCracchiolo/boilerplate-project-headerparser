@@ -20,11 +20,11 @@ app.get('/', function (req, res) {
 });
 
 // /api/whoami
-app.get('/api/whoami', (res) => {
+app.get('/api/whoami', (req, res) => {
   return res.json(
-    { ipaddress: 'hello API', 
-      language: "English",
-      software: "vscode"
+    { ipaddress: req.ip,
+      language: req.headers["accept-language"],
+      software: req.headers["user-agent"]
     }
   );
 });
